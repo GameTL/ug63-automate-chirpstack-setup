@@ -1,0 +1,45 @@
+I need you to make a browser bot to help me config a bunch of ug63
+assume all new gateway WIFI ssid starts with "Gateway_*" if no password
+1. search all wifi device with the gateway name print and let me select from the cli to confirm the new lorawan gateway, 
+2. in a loop wifi connects to it 
+3. Open Browser go to 192.168.1.1, then wait for the page to load
+4. click and fill in "admin" <input id="username" type="text" style="width: 100%; padding-left: 30px;" name="username" autofocus="true" class="ui-input"> 
+5. click and fill in "password" <input id="password" type="password" style="width: 100%; padding-left: 30px;" name="password" class="ui-input">
+6. click Login <button type="button" data-type="primary" style="width: 100%;" class="ui-button  undefined">Login</button>
+# Once in the landing page 
+1. click <a href="packet">Packet Forward</a>
+2. click downdrop menu <div style="width: 270px" class="ui-select">
+          <a class="ui-select-button" data-target="lulu_05615667088368814" aria-owns="lulu_05615667088368814" aria-expanded="false" style="display: block" href="javascript:" role="button"><span class="ui-select-text">Embedded NS</span><i class="ui-select-icon" aria-hidden="true"></i></a>
+          <ui-select-list id="lulu_05615667088368814" role="listbox" aria-expanded="false" class="ui-select-datalist" aria-hidden="true" data-custom-scroll="false"><a href="javascript:" class="ui-select-datalist-li " data-index="0" data-target="lulu_05615667088368814" role="option" aria-selected="false">Semtech</a><a href="javascript:" class="ui-select-datalist-li " data-index="1" data-target="lulu_05615667088368814" role="option" aria-selected="false">Basics Station</a><a href="javascript:" class="ui-select-datalist-li " data-index="2" data-target="lulu_05615667088368814" role="option" aria-selected="false">ChirpStack-Generic</a><a href="javascript:" class="ui-select-datalist-li " data-index="3" data-target="lulu_05615667088368814" role="option" aria-selected="false">ChirpStack-v4</a><a href="javascript:" class="ui-select-datalist-li " data-index="4" data-target="lulu_05615667088368814" role="option" aria-selected="false">Remoted Embedded NS</a><a href="javascript:" class="ui-select-datalist-li  selected" data-index="5" data-target="lulu_05615667088368814" role="option" aria-selected="true">Embedded NS</a></ui-select-list>
+        </div>
+3. select chirpstack <a href="javascript:" class="ui-select-datalist-li " data-index="3" data-target="lulu_05615667088368814" role="option" aria-selected="false">ChirpStack-v4</a>
+4. fill "192.168.1,1" into <input id="cs4_address" type="text" minlength="1" maxlength="254" required="" name="cs4_address" class="ui-input">
+5. input 1884 <input type="number" min="1" max="65535" minlength="1" maxlength="5" required="" name="cs4_port" class="ui-input">
+6. click submit <button type="submit" data-type="primary" style="width: 173px; height: 38px;" class="ui-button  undefined">Save &amp; Apply</button> this will take around 10s
+# change the password 
+1. click <a href="system">System</a>
+2. click <a href="/system/general"><span>User</span></a>
+3. fill "password" <input id="old_pwd" type="password" minlength="8" maxlength="31" required="" style="padding-right: 40px;" pattern="^[A-Za-z0-9&quot;!#$%&amp;'\(\)*+,-.\/:;&lt;=&gt;@\[\]^_`\{\|\}~]+$" name="old_pwd" class="ui-input">
+4. fill "new_password" <input id="new_pwd" type="password" minlength="8" maxlength="31" required="" style="padding-right: 40px;" pattern="^[A-Za-z0-9&quot;!#$%&amp;'\(\)*+,-.\/:;&lt;=&gt;@\[\]^_`\{\|\}~]+$" name="new_pwd" class="ui-input">
+5. fill "new_password" <input id="check_pwd" type="password" minlength="8" maxlength="31" required="" style="padding-right: 40px;" pattern="^[A-Za-z0-9&quot;!#$%&amp;'\(\)*+,-.\/:;&lt;=&gt;@\[\]^_`\{\|\}~]+$" name="check_pwd" class="ui-input">
+6. then click <button type="submit" data-type="primary" style="width: 173px; height: 38px;" class="ui-button  undefined">Save &amp; Apply</button>
+
+# redirect to relogin 
+1. fill "admin" <input id="username" type="text" style="width: 100%; padding-left: 30px;" name="username" autofocus="true" class="ui-input">
+2. fill "new_password" <input id="password" type="password" style="width: 100%; padding-left: 30px;" name="password" class="ui-input">
+3. click <button type="button" data-type="primary" style="width: 100%;" class="ui-button  undefined">Login</button>
+
+# Back into the landing page
+1. click <a href="network">Network</a>
+2. click dropdown <a class="ui-select-button" data-target="lulu_44784407483648725" aria-owns="lulu_44784407483648725" aria-expanded="false" style="display: block" href="javascript:" role="button"><span class="ui-select-text">WAN</span><i class="ui-select-icon" aria-hidden="true"></i></a>
+3. click <a href="javascript:" class="ui-select-datalist-li " data-index="1" data-target="lulu_44784407483648725" role="option" aria-selected="false">Cellular</a>
+4. <button type="submit" data-type="primary" style="width: 173px; height: 38px;" class="ui-button  undefined">Save &amp; Apply</button>
+
+# change wifi password
+1.  click <a href="/network/wlan"><span>WLAN</span></a>
+2. click dropdown <a class="ui-select-button" data-target="lulu_7120245267869065" aria-owns="lulu_7120245267869065" aria-expanded="false" style="display: block" href="javascript:" role="button"><span class="ui-select-text">No Encryption</span><i class="ui-select-icon" aria-hidden="true"></i></a>
+3. click option <a href="javascript:" class="ui-select-datalist-li " data-index="1" data-target="lulu_7120245267869065" role="option" aria-selected="false">WPA-PSK</a>
+4. fill "new_password" <input id="ap_pwd" type="password" required="" style="padding-right: 40px;" pattern="^[-!-]*$" name="ap_pwd" class="ui-input">
+5. <button type="submit" data-type="primary" style="width: 173px; height: 38px;" class="ui-button  undefined">Save &amp; Apply</button>
+
+END now you can move on to the next gateway in the agreed list
